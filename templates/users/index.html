@@ -1,0 +1,18 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-lg-3">
+        <a href="">
+            <div class="card rounded">
+                <div class="card-body">
+                    <img src="{% static 'assets/img/card.jpg' %}" class="img img-fluid mt-3 rounded" alt="">
+                    <h5 class="card-title">Minimal Ecommerce app</h5>
+                    <p class="text-secondary">This is an examle page with no contrnt. You can use it as a starter for
+                        your custom pages.</p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+{% endblock %}

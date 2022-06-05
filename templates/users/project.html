@@ -1,0 +1,58 @@
+{% extends 'users/base.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-6 col-lg-8">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Create Modules</h5>
+                {% include 'users/form.html' %}
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Project Name</h5>
+                <p>
+                    Above Created modules lists here
+                </p>
+
+                <!-- Table with stripped rows -->
+                <table class="table datatable">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Project Name</th>
+                        <th scope="col">description</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in instances %}
+                    <tr>
+                        <th scope="row">{{i.id}}</th>
+                        <td>
+                            <a href="{% url 'diagrams:modules' pk=i.pk %}">{{i.name}}</a>
+                        </td>
+                        <td>
+                            {{i.description}}
+                        </td>
+                        <td>
+                            <a href="{% url 'diagrams:delete_project' pk=i.pk %}" class="btn"><i
+                                    class="bi bi-menu-button-wide"></i>
+                                Delete</a>
+                            <a href="{% url 'diagrams:delete_project' pk=i.pk %}" class="btn btn-primary">
+                                Generate</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <!-- End Table with stripped rows -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
